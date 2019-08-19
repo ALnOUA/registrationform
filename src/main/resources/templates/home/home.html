@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="container">
-    <h2>Hi <span th:utext="${name}"></span>, this is the home page.</h2>
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+    <a th:href="@{/templates/users}">Members</a>
+    | &nbsp;
     <a th:href="@{/logout}">Sign out</a>
+</div>
+<div class="container">
+    <h2>Hi <span th:utext="${userName}"></span>, this is the home page.</h2>
 </div>
 </body>
 </html>

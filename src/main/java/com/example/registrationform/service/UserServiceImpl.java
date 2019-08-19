@@ -8,13 +8,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.registrationform.repository.RoleRespository;
 import com.example.registrationform.repository.UserRepository;
-
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
-
     @Qualifier("userRepository")
     @Autowired
     private UserRepository userRepository;
@@ -39,4 +38,10 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    @Override
+    public List<User> getUserList() {
+        return userRepository.findAll();
+    }
 }
+
+
