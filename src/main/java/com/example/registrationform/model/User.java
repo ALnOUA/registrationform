@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "user")
@@ -27,12 +28,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(name = "email")
+    @Pattern(regexp = "^[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}$", message = "{invalid.email}")
+    @NotNull
     private String email;
 
+
     @Column(name = "firstname")
+    @Pattern(regexp = "^[A-Z]+[a-z]{1,15}|[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]{1,15}", message = "{invalid.firstname}")
     private String firstname;
 
     @Column(name = "lastname")
+    @Pattern(regexp = "^[A-Z]+[a-z]{1,15}|[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]{1,15}", message = "{invalid.lastname}")
+
     private String lastname;
 
     @Column(name = "password")

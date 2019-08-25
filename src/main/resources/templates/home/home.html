@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:spring="http://jboss.org/xml/ns/javax/validation/mapping" xmlns:>
 <head>
     <title>Home</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -11,12 +11,16 @@
 <body>
 <div xmlns:th="http://www.thymeleaf.org"
      style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
-    <a th:href="@{/templates/users}">Members</a>
+    <a  th:href="@{/templates/users}" th:text="#{members}"></a>
     | &nbsp;
-    <a th:href="@{/logout}">Sign out</a>
+    <a th:href="@{/logout}" th:text="#{signout}"></a>
 </div>
 <div class="container">
     <h2>Hi <span th:utext="${userName}"></span>, this is the home page.</h2>
+</div>
+<div>
+    <a th:href="@{'?locale=en'}">En</a>
+    <a th:href="@{'?locale=ua'}">Ua</a>
 </div>
 </body>
 </html>
