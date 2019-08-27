@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" xmlns:spring="http://jboss.org/xml/ns/javax/validation/mapping" xmlns:>
 <head>
@@ -14,6 +15,8 @@
     <a  th:href="@{/templates/users}" th:text="#{members}"></a>
     | &nbsp;
     <a th:href="@{/logout}" th:text="#{signout}"></a>
+    | &nbsp;
+    <a th:href="@{/editions/list}" th:text="editions"></a>
 </div>
 <div class="container">
     <h2>Hi <span th:utext="${userName}"></span>, this is the home page.</h2>

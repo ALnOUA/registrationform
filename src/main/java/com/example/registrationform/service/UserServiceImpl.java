@@ -11,6 +11,7 @@ import com.example.registrationform.repository.UserRepository;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -42,6 +43,31 @@ public class UserServiceImpl implements UserService {
     public List<User> getUserList() {
         return userRepository.findAll();
     }
+    @Override
+    public User get(int id) {
+        return userRepository.findById(id).get();
+    }
+    @Override
+    public void delete(int id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public void delete(User user) {
+        userRepository.delete(user);
+
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+    @Override
+    public Optional<User> findById(int id) {
+        return userRepository.findById(id);
+    }
+
+
 }
 
 

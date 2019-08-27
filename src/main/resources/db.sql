@@ -36,14 +36,15 @@ CREATE TABLE  `persistent_logins` (
   PRIMARY KEY  (`series`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*DROP TABLE IF EXISTS `edition`;
+DROP TABLE IF EXISTS `edition`;
 CREATE TABLE  `edition` (
-                       `edition_id` int(11) NOT NULL auto_increment,
-                       `edition_name` varchar(255) NOT NULL,
-                       `edition_type` varchar(255) NOT NULL,
-                       PRIMARY KEY  (`edition_id`)
+                       `id` int(11) NOT NULL auto_increment,
+                       `name` varchar(255) NOT NULL,
+                       `type` varchar(255) NOT NULL,
+                       `price` int(12) NOT NULL,
+                       PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-*/
+
 
 
 INSERT INTO `role` VALUES (1,'ADMIN');
