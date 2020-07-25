@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
-@Service("userService")
+@Service
 public class UserServiceImpl implements UserService {
     @Qualifier("userRepository")
     @Autowired

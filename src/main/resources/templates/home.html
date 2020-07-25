@@ -4,7 +4,8 @@
       xmlns:th="http://www.thymeleaf.org" xmlns:spring="http://jboss.org/xml/ns/javax/validation/mapping" xmlns:>
 <head>
     <title>Home</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+          id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
@@ -12,11 +13,11 @@
 <body>
 <div xmlns:th="http://www.thymeleaf.org"
      style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
-    <a  th:href="@{/templates/users}" th:text="#{members}"></a>
+    <a th:href="@{/templates/users}" th:text="#{members}"></a>
     | &nbsp;
     <a th:href="@{/logout}" th:text="#{signout}"></a>
     | &nbsp;
-    <a th:href="@{/editions/list}" th:text="editions"></a>
+    <a th:href="@{/editions/list}" th:text="#{edition.list}"></a>
 </div>
 <div class="container">
     <h2>Hi <span th:utext="${userName}"></span>, this is the home page.</h2>

@@ -41,14 +41,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/main").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/editions/**").permitAll()
                 .antMatchers("/signup").permitAll()
                 .antMatchers("/home/**").permitAll()
-                .antMatchers("/user/**").hasAuthority("ADMIN").anyRequest()
+                .antMatchers("/user/**").hasAuthority("USER")
+                .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
                 .authenticated().and().csrf().disable()
                 .formLogin().loginPage("/login").failureUrl("/login?error=true")
-                .defaultSuccessUrl("/home/home")
+                .defaultSuccessUrl("/home")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and().logout()
@@ -57,7 +59,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().rememberMe()
                 .tokenRepository(persistentTokenRepository())
                 .tokenValiditySeconds(60*60)
-                .and().exceptionHandling().accessDeniedPage("/access_denied");
+                .and().exceptionHandling().accessDeniedPage("/access_denied").and().sessionManagement().maximumSessions(1)
+                .maxSessionsPreventsLogin(false);;
+
     }
 
     @Bean

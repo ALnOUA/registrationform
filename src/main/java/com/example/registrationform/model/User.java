@@ -2,9 +2,6 @@ package com.example.registrationform.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Indexed;
-
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -39,7 +36,6 @@ public class User {
 
     @Column(name = "lastname")
     @Pattern(regexp = "^[A-Z]+[a-z]{1,15}|[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]{1,15}", message = "{invalid.lastname}")
-
     private String lastname;
 
     @Column(name = "password")
